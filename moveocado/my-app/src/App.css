@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.taskbar {
+  background-color: #4caf50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.taskbar h1 {
+  margin: 0;
+}
+
+.camera-container {
+  flex-grow: 1;
+  position: relative;
+  border: 5px solid #4caf50; /* Green border around the camera */
+}
