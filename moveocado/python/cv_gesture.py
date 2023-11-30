@@ -24,11 +24,12 @@ def detect(frame, model, hands, classNames):
             prediction = model.predict([landmarks])
             classID = np.argmax(prediction)
             className = classNames[classID]
-            if className not in ["thumbs up", "thumbs down"]:
+            if className not in ["thumbs up", "thumbs down", "okay"]:
                 className = "none"
 
     # show the prediction on the frame
+    cv2.rectangle(frame, (0, 0), (200, 80), (255, 255, 255), cv2.FILLED)
     cv2.putText(frame, className, (10, 50), cv2.FONT_HERSHEY_SIMPLEX,
-                1, (0, 0, 255), 2, cv2.LINE_AA)
+                1, (0, 0, 0), 2, cv2.LINE_AA)
 
     return frame, className

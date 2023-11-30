@@ -89,9 +89,11 @@ def main(_):
                                           hand_landmarks,
                                           mp_hands.HAND_CONNECTIONS)
 
-                # Check if index finger tip is within the regions of the virtual keyboard
-                x_index = int(hand_landmarks.landmark[8].x * w)
-                y_index = int(hand_landmarks.landmark[8].y * h)
+                # Check if bottom of palm is within the regions of the virtual keyboard
+                x_index = int(hand_landmarks.landmark[0].x * w)
+                y_index = int(hand_landmarks.landmark[0].y * h)
+
+                pyautogui.moveTo(x_index, 400) 
 
                 # Update all of the sources
                 for source in sources:
@@ -107,7 +109,7 @@ def main(_):
 
         # drop suika on thumbs up
         cooldown = max(0, cooldown - 1)
-        if gesture == 'thumbs up' and cooldown == 0:
+        if gesture == 'okay' and cooldown == 0:
             pyautogui.click()
             cooldown = 10
         
